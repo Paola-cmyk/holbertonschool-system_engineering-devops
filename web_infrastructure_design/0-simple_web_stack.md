@@ -12,24 +12,26 @@ flowchart LR
     end
 
     subgraph DNS
-      B[foobar.com<br>A record to 8.8.8.8]
+      B[www.foobar.com<br>CNAME to foobar.com<br>A record to 8.8.8.8]
     end
 
     subgraph Server["Single Server (Linux, IP 8.8.8.8)"]
       C["Nginx Web Server<br>Ports 80/443"]
-      D["Application Server<br>(PHP‑FPM, uWSGI, etc.)"]
+      D["Application Server<br>(e.g. PHP, Node.js)"]
+      F["Application Files<br>(Codebase)"]
       E["MySQL Database"]
     end
 
     A -- "1. DNS Lookup" --> B
-    B -- "2. Resolved to 8.8.8.8" --> C
+    B -- "2. Resolved to 8.8.8.8" --> A
     A -- "3. HTTP Request" --> C
-    C -- "4. Static Assets" --> A
-    C -- "5. Proxy Dynamic" --> D
-    D -- "6. SQL Queries" --> E
-    E -- "7. Results" --> D
-    D -- "8. Rendered HTML" --> C
-    C -- "9. HTTP Response" --> A
+    C -- "4. Serves Static Assets" --> A
+    C -- "5. Proxies to App Server" --> D
+    D -- "6. Loads App Code" --> F
+    D -- "7. SQL Queries" --> E
+    E -- "8. Results" --> D
+    D -- "9. Rendered HTML" --> C
+    C -- "10. HTTP Response" --> A
 ```
 # Infrastructure specifics
 
