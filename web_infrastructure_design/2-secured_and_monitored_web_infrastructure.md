@@ -10,17 +10,20 @@ flowchart LR
   A["User Browser"] -->|"HTTPS (443)"| FW1["⛨ Edge Firewall"]
   
   %% Edge Firewall to Load Balancer
-  FW1 -->|"HTTPS (443)\nSSL Cert Installed"| LB["🔀 HAProxy Load Balancer"]
+  FW1 -->|"HTTPS (443)
+  nSSL Cert Installed"| LB["HAProxy Load Balancer"]
   
   %% Load Balancer to Internal Firewall
-  LB --> FW2["⛨ Internal Firewall"]
+  LB --> FW2["Internal Firewall"]
   
   %% Internal Firewall to App Servers
-  FW2 --> S1["App Server 1\nNginx + App Runtime"]
-  FW2 --> S2["App Server 2\nNginx + App Runtime"]
+  FW2 --> S1["App Server 1
+  nNginx + App Runtime"]
+  FW2 --> S2["App Server 2
+  nNginx + App Runtime"]
   
   %% Each App Server to Database Firewall
-  S1 --> FW3["⛨ DB Firewall"]
+  S1 --> FW3["DB Firewall"]
   S2 --> FW3
   
   %% DB Firewall to Database Nodes
@@ -40,6 +43,7 @@ flowchart LR
   LB --> M1
   S1 --> M2
   S2 --> M3
+
 ```
 
 # Infrastructure specifics
