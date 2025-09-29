@@ -1,5 +1,5 @@
 # Distributed web infrastructure
-
+A distributed web infrastructure is when the parts of your website or application are spread across multiple servers instead of running everything on a single machine. Each server is responsible for a specific role, like handling web traffic, running backend code, or managing data.
 
 # Design infrastructure
 ```mermaid

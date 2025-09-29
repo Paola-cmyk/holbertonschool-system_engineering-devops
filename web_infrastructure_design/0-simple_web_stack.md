@@ -1,6 +1,6 @@
 # Simple web stack
 
-The user opend up a browser ans types ```www.foobar.com``` The browser first checks DNS to find the IP address of the server. The browser then sends a request to that server. On the server, a LAMP stack runs Linux as the OS, Apache as the web server, PHP to run the website code, and MySQL as the database. Apache handles the request and passes it to PHP, which may grab data from MySQL and build a web page. That page is sent back to the user’s browser to display the site. It all happens on one server, which makes it simple but not very scalable.
+The user opends up a browser ans types ```www.foobar.com``` The browser first checks DNS to find the IP address of the server. The browser then sends a request to that server. On the server, a LAMP stack runs Linux as the OS, Apache as the web server, PHP to run the website code, and MySQL as the database. Apache handles the request and passes it to PHP, which may grab data from MySQL and build a web page. That page is sent back to the user’s browser to display the site. It all happens on one server, which makes it simple but not very scalable.
 
 #  Design Infrastructure
 
