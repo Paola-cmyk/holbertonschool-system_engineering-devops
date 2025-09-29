@@ -27,7 +27,7 @@ flowchart LR
 ```
 # Infrastructure specifics
 
-### Load Balancer Cluster (HAProxy LB1 + LB2)
+### Load Balancer Cluster
 
 Using two HAProxy instances in a cluster to avoid having a single point of failure. If one load balancer goes down, the other can continue handling traffic. The cluster ensures high availability, distributes traffic between backend components, and handles SSL termination.
 
@@ -38,6 +38,6 @@ The web server runs on its own dedicated machine. It handles static content and 
 
 The application server runs the backend logic, processes requests, interacts with the database, and generates dynamic content. hosting this separately allows us to scale the app layer independently from the web layer, and keeps resource usage isolated.
 
-### Database Server (MySQL)
+### Database Server
 
 The database is hosted on its own machine to avoid performance issues caused by sharing resources with the app or web server. It also simplifies the security, backups, and monitoring.
